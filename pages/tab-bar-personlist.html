@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>imedu-personlist</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="../css/mui.min.css">
+		<link rel="stylesheet" href="../css/style.css">
+		<link href="../css/mui.indexedlist.css" rel="stylesheet" />
+		<!-- ==================测试数据================ -->
+		<script src="../libs/chinaese2pinyin/testdata.js"></script>
+		<script src="../libs/chinaese2pinyin/pinyin.js"></script>
+		<style>
+			html,
+			body {
+				height: 100%;
+				overflow: hidden;
+			}
+			.mui-bar {
+				-webkit-box-shadow: none;
+				box-shadow: none;
+			}
+			
+			
+				.mui-plus .plus{
+				display: inline;
+			}
+			
+			.plus{
+				display: none;
+			}
+			
+			#topPopover {
+				position: fixed;
+				top: 16px;
+				right: 6px;
+			}
+			#topPopover .mui-popover-arrow {
+				left: auto;
+				right: 6px;
+			}
+			p {
+				text-indent: 22px;
+			}
+			span.mui-icon {
+				font-size: 14px;
+				color: #007aff;
+				margin-left: -15px;
+				padding-right: 10px;
+			}
+			.mui-popover {
+				height: 100px;
+			}
+			.mui-content {
+				padding: 10px;
+			}
+		</style>
+	</head>
+
+	<body>
+		
+		<!--右上角弹出菜单-->
+		<div id="topPopover" class="mui-popover" >
+			<div class="mui-popover-arrow"></div>
+			<div class="mui-scroll-wrapper">
+				<div class="mui-scroll">
+					<ul class="mui-table-view">
+						<li class="mui-table-view-cell"><a href="#">添加好友</a>
+						</li>
+						<li class="mui-table-view-cell"><a href="#">扫一扫</a>
+						</li>						
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+		
+		<div class="mui-content">
+			
+				<div id='list' class="mui-indexed-list">
+					<div class="mui-indexed-list-search mui-input-row mui-search">						
+						<input type="search" class="mui-input-clear mui-indexed-list-search-input" placeholder="搜索好友或者群">
+					</div>				
+					<div class="mui-indexed-list-bar">
+						<a>A</a>
+						<a>B</a>
+						<a>C</a>
+						<a>D</a>
+						<a>E</a>
+						<a>F</a>
+						<a>G</a>
+						<a>H</a>
+						<a>I</a>
+						<a>J</a>
+						<a>K</a>
+						<a>L</a>
+						<a>M</a>
+						<a>N</a>
+						<a>O</a>
+						<a>P</a>
+						<a>Q</a>
+						<a>R</a>
+						<a>S</a>
+						<a>T</a>
+						<a>U</a>
+						<a>V</a>
+						<a>W</a>
+						<a>X</a>
+						<a>Y</a>
+						<a>Z</a>
+					</div>
+					<div class="mui-indexed-list-alert"></div>
+					<div class="mui-indexed-list-inner">
+						<div class="mui-indexed-list-empty-alert">没有数据</div>
+						<ul class="mui-table-view" id="imchat">
+							<!-- 群 -->
+							<li  class="mui-table-view-cell mui-indexed-list-item">群1</li>
+							<li  class="mui-table-view-cell mui-indexed-list-item">群2</li>
+							<li  class="mui-table-view-cell mui-indexed-list-item">群3</li>
+							<li  class="mui-table-view-cell mui-indexed-list-item">群4</li>
+							<!-- 人 -->
+							<li data-group="A" id='A' class="mui-table-view-divider mui-indexed-list-group">A</li>
+							
+							<li data-group="B" id='B'  class="mui-table-view-divider mui-indexed-list-group">B</li>
+							<li  class="mui-table-view-cell mui-indexed-list-item">保山机场</li>
+							<li data-group="C" id='C'  class="mui-table-view-divider mui-indexed-list-group">C</li>
+							
+							<li data-group="D" id='D'  class="mui-table-view-divider mui-indexed-list-group">D</li>
+							
+							<li data-group="E" id='E'  class="mui-table-view-divider mui-indexed-list-group">E</li>
+							
+							<li data-group="F" id='F'  class="mui-table-view-divider mui-indexed-list-group">F</li>
+							
+							<li data-group="G" id='G'  class="mui-table-view-divider mui-indexed-list-group">G</li>
+							
+							<li data-group="H" id='H'  class="mui-table-view-divider mui-indexed-list-group">H</li>
+							
+							<li data-group="I" id='I'  class="mui-table-view-divider mui-indexed-list-group">I</li>
+							
+							<li data-group="J" id='J'  class="mui-table-view-divider mui-indexed-list-group">J</li>
+							
+							<li data-group="K" id='K'  class="mui-table-view-divider mui-indexed-list-group">K</li>
+							
+							<li data-group="L" id='L'  class="mui-table-view-divider mui-indexed-list-group">L</li>
+							
+							<li data-group="M" id='M'  class="mui-table-view-divider mui-indexed-list-group">M</li>
+							
+							<li data-group="N" id='N'  class="mui-table-view-divider mui-indexed-list-group">N</li>
+							
+							<li data-group="O" id='O'  class="mui-table-view-divider mui-indexed-list-group">O</li>
+							
+							<li data-group="P" id='P'  class="mui-table-view-divider mui-indexed-list-group">P</li>
+							
+							<li data-group="Q" id='Q'  class="mui-table-view-divider mui-indexed-list-group">Q</li>
+							
+							<li data-group="R" id='R'  class="mui-table-view-divider mui-indexed-list-group">R</li>
+							
+							<li data-group="S" id='S'  class="mui-table-view-divider mui-indexed-list-group">S</li>
+							
+							<li data-group="T" id='T'  class="mui-table-view-divider mui-indexed-list-group">T</li>
+							
+							<li data-group="U" id='U'  class="mui-table-view-divider mui-indexed-list-group">U</li>
+							
+							<li data-group="V" id='V'  class="mui-table-view-divider mui-indexed-list-group">V</li>
+							
+							<li data-group="W" id='W'  class="mui-table-view-divider mui-indexed-list-group">W</li>
+							
+							<li data-group="X" id='X'  class="mui-table-view-divider mui-indexed-list-group">X</li>
+							
+							<li data-group="Y" id='Y'  class="mui-table-view-divider mui-indexed-list-group">Y</li>
+							
+							<li data-group="Z" id='Z'  class="mui-table-view-divider mui-indexed-list-group">Z</li>
+						</ul>
+					</div>
+				</div>
+			
+		</div>
+	</body>
+	<script src="../js/mui.min.js"></script>
+	<script src="../js/mui.indexedlist.js"></script>
+	<script>
+		mui.init({
+			swipeBack:true //启用右滑关闭功能
+		});
+		mui.ready(function() {
+			
+			//=====================真实数据模拟=====================
+			__test_chinaese2pinyin.forEach(function(item, index){
+				var py = window.Pinyin.t(item).substring(0,1).toLocaleUpperCase();
+				document.getElementById(py).insertAdjacentHTML('afterend', '<li class="mui-table-view-cell mui-indexed-list-item">'+item+'</li>');
+			});
+			
+			// var persongroup = document.querySelector('div.persongroup');
+			var list = document.getElementById('list');
+			//calc hieght
+			list.style.height = (document.body.offsetHeight/* - header.offsetHeight */) + 'px';
+			//create
+			window.indexedList = new mui.IndexedList(list);			
+		});
+		
+		//子webview的topPopover
+		mui.plusReady(function () {
+		    window.addEventListener('popoverTianjia',function(){
+		    	mui('#topPopover').popover('toggle'); 
+		    });
+		     window.addEventListener('popoverTianjia-hide',function(){
+		    	mui('#topPopover').popover('hide'); 
+		    });
+		})
+	</script>
+			<script type="text/javascript">
+				//tap为mui封装的单击事件，可参考手势事件章节
+				document.getElementById('imchat').addEventListener('tap', function() {
+					//打开关于页面
+					mui.openWindow({
+						url: '../pages-in/im-chat.html',
+						id: 'imchat'
+	// 					styles: { // 窗口参数 参考5+规范中的WebviewStyle,也就是说WebviewStyle下的参数都可以在此设置
+	// 						titleNView: { // 窗口的标题栏控件
+	// 							titleText: "chat (聊天窗口)", // 标题栏文字,当不设置此属性时，默认加载当前页面的标题，并自动更新页面的标题
+	// 							titleColor: "#000000", // 字体颜色,颜色值格式为"#RRGGBB",默认值为"#000000"
+	// 							titleSize: "17px", // 字体大小,默认17px
+	// 							backgroundColor: "#F7F7F7", // 控件背景颜色,颜色值格式为"#RRGGBB",默认值为"#F7F7F7"
+	// 							progress: { // 标题栏控件的进度条样式
+	// 								color: "#00FF00", // 进度条颜色,默认值为"#00FF00"  
+	// 								height: "2px" // 进度条高度,默认值为"2px"         
+	// 							},
+	// 							splitLine: { // 标题栏控件的底部分割线，类似borderBottom
+	// 								color: "#CCCCCC", // 分割线颜色,默认值为"#CCCCCC"  
+	// 								height: "1px" // 分割线高度,默认值为"2px"
+	// 							}
+	// 						}
+	// 					}
+					});
+				});
+			</script>
+</html>

@@ -1,0 +1,945 @@
+{
+    "@platforms" : [ "android", "iPhone", "iPad" ],
+    "id" : "H56A0CABB", /*必选，应用的标识*/
+    "name" : "imedu", /*必选，应用名称*/
+    "version" : {
+        "name" : "1.0", /*必选，版本名称*/
+        "code" : 0
+    },
+    "description" : "imedu", /*可选，应用描述信息*/
+    "icons" : {
+        "72" : "icon.png"
+    },
+    "fullscreen" : false, /* 沉浸式状态栏 */
+    "launch_path" : "index.html", /*必选，应用的入口页面，默认为根目录下的index.html；也可以是网络地址，网络地址必须以http://或https://开头*/
+    "developer" : {
+        "email" : "", /*可选，开发者名称*/
+        "name" : "", /*可选，开发者邮箱地址*/
+        "url" : ""
+    },
+    "permissions" : {
+        "Events" : {
+            "description" : "应用扩展事件"
+        },
+        "Speech" : {
+            "description" : "管理语音识别插件"
+        },
+        "Payment" : {},
+        "Share" : {},
+        "Push" : {},
+        "Maps" : {},
+        "OAuth" : {},
+        "Contacts" : {},
+        "Statistic" : {},
+        "Messaging" : {},
+        "Fingerprint" : {},
+        "VideoPlayer" : {},
+        "LivePusher" : {},
+        "iBeacon" : {},
+        "Bluetooth" : {}
+    },
+    "plus" : {
+        //         "launchwebview" : {
+        //             "titleNView" : {
+        //                 "backgroundcolor" : "#f7f7f7",
+        //                 "titletext" : "首页",
+        //                 "titlecolor" : "#000000"
+        //             }
+        //         },
+        "statusbar" : {
+            "immersed" : "supportedDevice",
+            "style" : "dark"
+        },
+        "popGesture" : "close", /*设置应用默认侧滑返回关闭Webview窗口，none为无侧滑返回功能，hide为侧滑隐藏Webview窗口。参考ask.dcloud.net.cn/article/102*/
+        "splashscreen" : {
+            "autoclose" : true, /*如果为true，程序启动的图片可以自动关闭，如果为false，开发者需要手动关闭*/
+            "waiting" : false
+        },
+        "runmode" : "normal", /*两个值，liberate或normal，前者在应用安装时释放资源，后者不需要释放资源*/
+        "signature" : "Sk9JTiBVUyBtYWlsdG86aHIyMDEzQGRjbG91ZC5pbw==", /*可选，保留给应用签名，暂不使用*/
+        "distribute" : {
+            "debug" : "", /*可选，是否为debug模式，可取值：true表示debug模式运行，false表示release模式运行，默认值为false*/
+            "apple" : {
+                "appid" : "", /*iOS必选，苹果开发网站申请的appid，如io.dcloud.HelloMUI*/
+                "mobileprovision" : "", /*iOS必选，打包配置文件*/
+                "password" : "", /*iOS必选，导入配置文件密码*/
+                "p12" : "", /*iOS必选，打包配置文件关联的个人证书*/
+                "devices" : "universal", /*iphone，可取值iphone/ipad/universal*/
+                "frameworks" : []
+            },
+            "google" : {
+                "packagename" : "", /*Android必选，程序包名，如io.dcloud.HelloMUI*/
+                "keystore" : "", /*Android必选，打包证书文件*/
+                "password" : "", /*Android必选，打包证书密码*/
+                "aliasname" : "", /*Android必选，打包证书别名*/
+                "permissions" : [
+                    "<uses-feature android:name=\"android.hardware.camera\"/>",
+                    "<uses-feature android:name=\"android.hardware.camera.autofocus\"/>",
+                    "<uses-permission android:name=\"android.permission.ACCESS_CHECKIN_PROPERTIES\"/>",
+                    "<uses-permission android:name=\"android.permission.ACCESS_COARSE_LOCATION\"/>",
+                    "<uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\"/>",
+                    "<uses-permission android:name=\"android.permission.ACCESS_LOCATION_EXTRA_COMMANDS\"/>",
+                    "<uses-permission android:name=\"android.permission.ACCESS_MOCK_LOCATION\"/>",
+                    "<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\"/>",
+                    "<uses-permission android:name=\"android.permission.ACCESS_SURFACE_FLINGER\"/>",
+                    "<uses-permission android:name=\"android.permission.ACCESS_WIFI_STATE\"/>",
+                    "<uses-permission android:name=\"android.permission.ACCOUNT_MANAGER\"/>",
+                    "<uses-permission android:name=\"android.permission.ADD_VOICEMAIL\"/>",
+                    "<uses-permission android:name=\"android.permission.AUTHENTICATE_ACCOUNTS\"/>",
+                    "<uses-permission android:name=\"android.permission.BATTERY_STATS\"/>",
+                    "<uses-permission android:name=\"android.permission.BIND_ACCESSIBILITY_SERVICE\"/>",
+                    "<uses-permission android:name=\"android.permission.BIND_APPWIDGET\"/>",
+                    "<uses-permission android:name=\"android.permission.BIND_CARRIER_MESSAGING_SERVICE\"/>",
+                    "<uses-permission android:name=\"android.permission.BIND_DEVICE_ADMIN\"/>",
+                    "<uses-permission android:name=\"android.permission.BIND_DREAM_SERVICE\"/>",
+                    "<uses-permission android:name=\"android.permission.BIND_INPUT_METHOD\"/>",
+                    "<uses-permission android:name=\"android.permission.BIND_NFC_SERVICE\"/>",
+                    "<uses-permission android:name=\"android.permission.BIND_NOTIFICATION_LISTENER_SERVICE\"/>",
+                    "<uses-permission android:name=\"android.permission.BIND_PRINT_SERVICE\"/>",
+                    "<uses-permission android:name=\"android.permission.BIND_REMOTEVIEWS\"/>",
+                    "<uses-permission android:name=\"android.permission.BIND_TEXT_SERVICE\"/>",
+                    "<uses-permission android:name=\"android.permission.BIND_TV_INPUT\"/>",
+                    "<uses-permission android:name=\"android.permission.BIND_VOICE_INTERACTION\"/>",
+                    "<uses-permission android:name=\"android.permission.BIND_VPN_SERVICE\"/>",
+                    "<uses-permission android:name=\"android.permission.BIND_WALLPAPER\"/>",
+                    "<uses-permission android:name=\"android.permission.BLUETOOTH\"/>",
+                    "<uses-permission android:name=\"android.permission.BLUETOOTH_ADMIN\"/>",
+                    "<uses-permission android:name=\"android.permission.BLUETOOTH_PRIVILEGED\"/>",
+                    "<uses-permission android:name=\"android.permission.BODY_SENSORS\"/>",
+                    "<uses-permission android:name=\"android.permission.BRICK\"/>",
+                    "<uses-permission android:name=\"android.permission.BROADCAST_PACKAGE_REMOVED\"/>",
+                    "<uses-permission android:name=\"android.permission.BROADCAST_SMS\"/>",
+                    "<uses-permission android:name=\"android.permission.BROADCAST_STICKY\"/>",
+                    "<uses-permission android:name=\"android.permission.BROADCAST_WAP_PUSH\"/>",
+                    "<uses-permission android:name=\"android.permission.CALL_PHONE\"/>",
+                    "<uses-permission android:name=\"android.permission.CALL_PRIVILEGED\"/>",
+                    "<uses-permission android:name=\"android.permission.CAMERA\"/>",
+                    "<uses-permission android:name=\"android.permission.CAPTURE_AUDIO_OUTPUT\"/>",
+                    "<uses-permission android:name=\"android.permission.CAPTURE_SECURE_VIDEO_OUTPUT\"/>",
+                    "<uses-permission android:name=\"android.permission.CAPTURE_VIDEO_OUTPUT\"/>",
+                    "<uses-permission android:name=\"android.permission.CHANGE_COMPONENT_ENABLED_STATE\"/>",
+                    "<uses-permission android:name=\"android.permission.CHANGE_CONFIGURATION\"/>",
+                    "<uses-permission android:name=\"android.permission.CHANGE_NETWORK_STATE\"/>",
+                    "<uses-permission android:name=\"android.permission.CHANGE_WIFI_MULTICAST_STATE\"/>",
+                    "<uses-permission android:name=\"android.permission.CHANGE_WIFI_STATE\"/>",
+                    "<uses-permission android:name=\"android.permission.CLEAR_APP_CACHE\"/>",
+                    "<uses-permission android:name=\"android.permission.CLEAR_APP_USER_DATA\"/>",
+                    "<uses-permission android:name=\"android.permission.CONTROL_LOCATION_UPDATES\"/>",
+                    "<uses-permission android:name=\"android.permission.DELETE_CACHE_FILES\"/>",
+                    "<uses-permission android:name=\"android.permission.DELETE_PACKAGES\"/>",
+                    "<uses-permission android:name=\"android.permission.DEVICE_POWER\"/>",
+                    "<uses-permission android:name=\"android.permission.DIAGNOSTIC\"/>",
+                    "<uses-permission android:name=\"android.permission.DISABLE_KEYGUARD\"/>",
+                    "<uses-permission android:name=\"android.permission.DUMP\"/>",
+                    "<uses-permission android:name=\"android.permission.EXPAND_STATUS_BAR\"/>",
+                    "<uses-permission android:name=\"android.permission.FACTORY_TEST\"/>",
+                    "<uses-permission android:name=\"android.permission.FLASHLIGHT\"/>",
+                    "<uses-permission android:name=\"android.permission.FORCE_BACK\"/>",
+                    "<uses-permission android:name=\"android.permission.GET_ACCOUNTS\"/>",
+                    "<uses-permission android:name=\"android.permission.GET_PACKAGE_SIZE\"/>",
+                    "<uses-permission android:name=\"android.permission.GET_TASKS\"/>",
+                    "<uses-permission android:name=\"android.permission.GET_TOP_ACTIVITY_INFO\"/>",
+                    "<uses-permission android:name=\"android.permission.GLOBAL_SEARCH\"/>",
+                    "<uses-permission android:name=\"android.permission.HARDWARE_TEST\"/>",
+                    "<uses-permission android:name=\"android.permission.INJECT_EVENTS\"/>",
+                    "<uses-permission android:name=\"android.permission.INSTALL_LOCATION_PROVIDER\"/>",
+                    "<uses-permission android:name=\"android.permission.INSTALL_PACKAGES\"/>",
+                    "<uses-permission android:name=\"android.permission.INSTALL_SHORTCUT\"/>",
+                    "<uses-permission android:name=\"android.permission.INTERNAL_SYSTEM_WINDOW\"/>",
+                    "<uses-permission android:name=\"android.permission.INTERNET\"/>",
+                    "<uses-permission android:name=\"android.permission.KILL_BACKGROUND_PROCESSES\"/>",
+                    "<uses-permission android:name=\"android.permission.LOCATION_HARDWARE\"/>",
+                    "<uses-permission android:name=\"android.permission.MANAGE_ACCOUNTS\"/>",
+                    "<uses-permission android:name=\"android.permission.MANAGE_APP_TOKENS\"/>",
+                    "<uses-permission android:name=\"android.permission.MANAGE_DOCUMENTS\"/>",
+                    "<uses-permission android:name=\"android.permission.MASTER_CLEAR\"/>",
+                    "<uses-permission android:name=\"android.permission.MEDIA_CONTENT_CONTROL\"/>",
+                    "<uses-permission android:name=\"android.permission.MODIFY_AUDIO_SETTINGS\"/>",
+                    "<uses-permission android:name=\"android.permission.MODIFY_PHONE_STATE\"/>",
+                    "<uses-permission android:name=\"android.permission.MOUNT_FORMAT_FILESYSTEMS\"/>",
+                    "<uses-permission android:name=\"android.permission.MOUNT_UNMOUNT_FILESYSTEMS\"/>",
+                    "<uses-permission android:name=\"android.permission.NFC\"/>",
+                    "<uses-permission android:name=\"android.permission.PERSISTENT_ACTIVITY\"/>",
+                    "<uses-permission android:name=\"android.permission.PROCESS_OUTGOING_CALLS\"/>",
+                    "<uses-permission android:name=\"android.permission.READ_CALENDAR\"/>",
+                    "<uses-permission android:name=\"android.permission.READ_CALL_LOG\"/>",
+                    "<uses-permission android:name=\"android.permission.READ_CONTACTS\"/>",
+                    "<uses-permission android:name=\"android.permission.READ_EXTERNAL_STORAGE\"/>",
+                    "<uses-permission android:name=\"android.permission.READ_FRAME_BUFFER\"/>",
+                    "<uses-permission android:name=\"android.permission.READ_HISTORY_BOOKMARKS\"/>",
+                    "<uses-permission android:name=\"android.permission.READ_INPUT_STATE\"/>",
+                    "<uses-permission android:name=\"android.permission.READ_LOGS\"/>",
+                    "<uses-permission android:name=\"android.permission.READ_PHONE_STATE\"/>",
+                    "<uses-permission android:name=\"android.permission.READ_PROFILE\"/>",
+                    "<uses-permission android:name=\"android.permission.READ_SMS\"/>",
+                    "<uses-permission android:name=\"android.permission.READ_SOCIAL_STREAM\"/>",
+                    "<uses-permission android:name=\"android.permission.READ_SYNC_SETTINGS\"/>",
+                    "<uses-permission android:name=\"android.permission.READ_SYNC_STATS\"/>",
+                    "<uses-permission android:name=\"android.permission.READ_USER_DICTIONARY\"/>",
+                    "<uses-permission android:name=\"android.permission.READ_VOICEMAIL\"/>",
+                    "<uses-permission android:name=\"android.permission.REBOOT\"/>",
+                    "<uses-permission android:name=\"android.permission.RECEIVE_BOOT_COMPLETED\"/>",
+                    "<uses-permission android:name=\"android.permission.RECEIVE_MMS\"/>",
+                    "<uses-permission android:name=\"android.permission.RECEIVE_SMS\"/>",
+                    "<uses-permission android:name=\"android.permission.RECEIVE_WAP_PUSH\"/>",
+                    "<uses-permission android:name=\"android.permission.RECORD_AUDIO\"/>",
+                    "<uses-permission android:name=\"android.permission.REORDER_TASKS\"/>",
+                    "<uses-permission android:name=\"android.permission.RESTART_PACKAGES\"/>",
+                    "<uses-permission android:name=\"android.permission.SEND_RESPOND_VIA_MESSAGE\"/>",
+                    "<uses-permission android:name=\"android.permission.SEND_SMS\"/>",
+                    "<uses-permission android:name=\"android.permission.SET_ACTIVITY_WATCHER\"/>",
+                    "<uses-permission android:name=\"android.permission.SET_ALARM\"/>",
+                    "<uses-permission android:name=\"android.permission.SET_ALWAYS_FINISH\"/>",
+                    "<uses-permission android:name=\"android.permission.SET_ANIMATION_SCALE\"/>",
+                    "<uses-permission android:name=\"android.permission.SET_DEBUG_APP\"/>",
+                    "<uses-permission android:name=\"android.permission.SET_ORIENTATION\"/>",
+                    "<uses-permission android:name=\"android.permission.SET_POINTER_SPEED\"/>",
+                    "<uses-permission android:name=\"android.permission.SET_PREFERRED_APPLICATIONS\"/>",
+                    "<uses-permission android:name=\"android.permission.SET_PROCESS_LIMIT\"/>",
+                    "<uses-permission android:name=\"android.permission.SET_TIME\"/>",
+                    "<uses-permission android:name=\"android.permission.SET_TIME_ZONE\"/>",
+                    "<uses-permission android:name=\"android.permission.SET_WALLPAPER\"/>",
+                    "<uses-permission android:name=\"android.permission.SET_WALLPAPER_HINTS\"/>",
+                    "<uses-permission android:name=\"android.permission.SIGNAL_PERSISTENT_PROCESSES\"/>",
+                    "<uses-permission android:name=\"android.permission.STATUS_BAR\"/>",
+                    "<uses-permission android:name=\"android.permission.SUBSCRIBED_FEEDS_READ\"/>",
+                    "<uses-permission android:name=\"android.permission.SUBSCRIBED_FEEDS_WRITE\"/>",
+                    "<uses-permission android:name=\"android.permission.SYSTEM_ALERT_WINDOW\"/>",
+                    "<uses-permission android:name=\"android.permission.TRANSMIT_IR\"/>",
+                    "<uses-permission android:name=\"android.permission.UNINSTALL_SHORTCUT\"/>",
+                    "<uses-permission android:name=\"android.permission.UPDATE_DEVICE_STATS\"/>",
+                    "<uses-permission android:name=\"android.permission.USE_CREDENTIALS\"/>",
+                    "<uses-permission android:name=\"android.permission.USE_FINGERPRINT\"/>",
+                    "<uses-permission android:name=\"android.permission.USE_SIP\"/>",
+                    "<uses-permission android:name=\"android.permission.VIBRATE\"/>",
+                    "<uses-permission android:name=\"android.permission.WAKE_LOCK\"/>",
+                    "<uses-permission android:name=\"android.permission.WRITE_APN_SETTINGS\"/>",
+                    "<uses-permission android:name=\"android.permission.WRITE_CALENDAR\"/>",
+                    "<uses-permission android:name=\"android.permission.WRITE_CALL_LOG\"/>",
+                    "<uses-permission android:name=\"android.permission.WRITE_CONTACTS\"/>",
+                    "<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\"/>",
+                    "<uses-permission android:name=\"android.permission.WRITE_GSERVICES\"/>",
+                    "<uses-permission android:name=\"android.permission.WRITE_HISTORY_BOOKMARKS\"/>",
+                    "<uses-permission android:name=\"android.permission.WRITE_PROFILE\"/>",
+                    "<uses-permission android:name=\"android.permission.WRITE_SECURE_SETTINGS\"/>",
+                    "<uses-permission android:name=\"android.permission.WRITE_SETTINGS\"/>",
+                    "<uses-permission android:name=\"android.permission.WRITE_SMS\"/>",
+                    "<uses-permission android:name=\"android.permission.WRITE_SOCIAL_STREAM\"/>",
+                    "<uses-permission android:name=\"android.permission.WRITE_SYNC_SETTINGS\"/>",
+                    "<uses-permission android:name=\"android.permission.WRITE_USER_DICTIONARY\"/>",
+                    "<uses-permission android:name=\"android.permission.WRITE_VOICEMAIL\"/>",
+                    "<uses-permission android:name=\"android.permission.RECEIVE_USER_PRESENT\"/>",
+                    "<uses-permission android:name=\"android.permission.BLUETOOTH\"/>",
+                    "<uses-permission android:name=\"android.permission.BLUETOOTH_ADMIN\"/>"
+                ]
+            },
+            "orientation" : [
+                "portrait-primary",
+                "landscape-primary",
+                "portrait-secondary",
+                "landscape-secondary"
+            ], /*必选*/
+            "icons" : {
+                "ios" : {
+                    "prerendered" : "", /*必选，是否高亮显示*/
+                    "auto" : "", /*可选，512x512，用于自动生成各种尺寸图标的大分辨率程序图标*/
+                    "iphone" : {
+                        "normal" : "", /*可选，57x57，iPhone普通屏幕程序图标*/
+                        "retina" : "", /*可选，114x114，iPhone高分屏程序图标*/
+                        "retina7" : "", /*可选，120x120，iPhone iOS7高分屏程序图标*/
+                        "spotlight-normal" : "", /*可选，29x29，iPhone Spotlight搜索程序图标*/
+                        "spotlight-retina" : "", /*可选，58x58，iPhone高分屏Spotlight搜索程序图标*/
+                        "spotlight-retina7" : "", /*可选，80x80，iPhone iOS7高分屏Spotlight搜索程序图标*/
+                        "settings-normal" : "", /*可选，29x29，iPhone设置页面程序图标*/
+                        "settings-retina" : ""
+                    },
+                    "ipad" : {
+                        "normal" : "", /*可选，72x72，iPad普通屏幕程序图标*/
+                        "retina" : "", /*可选，144x144，iPad高分屏程序图标*/
+                        "normal7" : "", /*可选，76x76，iPad iOS7程序图标*/
+                        "retina7" : "", /*可选，152x152，iPad iOS7高分屏程序图标*/
+                        "spotlight-normal" : "", /*可选，50x50，iPad Spotlight搜索程序图标*/
+                        "spotlight-retina" : "", /*可选，100x100，iPad高分屏Spotlight搜索程序图标*/
+                        "spotlight-normal7" : "", /*可选，40x40，iPad iOS7 Spotlight搜索程序图标*/
+                        "spotlight-retina7" : "", /*可选，80x80，iPad iOS7高分屏Spotlight搜索程序图标*/
+                        "settings-normal" : "", /*可选，29x29，iPad设置页面程序图标*/
+                        "settings-retina" : ""
+                    },
+                    "appstore" : "images/logo2.png"
+                },
+                "android" : {
+                    "mdpi" : "images/logo2.png", /*必选，48x48，普通屏程序图标*/
+                    "ldpi" : "images/logo2.png", /*必选，48x48，大屏程序图标*/
+                    "hdpi" : "images/logo2.png", /*必选，72x72，高分屏程序图标*/
+                    "xhdpi" : "images/logo2.png", /*必选，96x96，720P高分屏程序图标*/
+                    "xxhdpi" : "images/logo2.png",
+                    "xxxhdpi" : "images/logo2.png"
+                }
+            },
+            "splashscreen" : {
+                "ios" : {
+                    "iphone" : {
+                        "default" : "", /*必选，320x480，iPhone3启动图片*/
+                        "retina35" : "", /*必选，640x960，3.5英寸设备(iPhone4)启动图片*/
+                        "retina40" : ""
+                    },
+                    "ipad" : {
+                        "portrait" : "", /*可选，768x1004，需支持iPad时必选，iPad竖屏启动图片*/
+                        "portrait-retina" : "", /*可选，1536x2008，需支持iPad时必选，iPad高分屏竖屏图片*/
+                        "landscape" : "", /*可选，1024x748，需支持iPad时必选，iPad横屏启动图片*/
+                        "landscape-retina" : "", /*可选 ，2048x1496，需支持iPad时必选，iPad高分屏横屏启动图片*/
+                        "portrait7" : "", /*可选，768x1024，需支持iPad iOS7时必选，iPad竖屏启动图片*/
+                        "portrait-retina7" : "", /*可选，1536x2048，需支持iPad iOS7时必选，iPad高分屏竖屏图片*/
+                        "landscape7" : "", /*可选，1024x768，需支持iPad iOS7时必选，iPad横屏启动图片*/
+                        "landscape-retina7" : ""
+                    }
+                },
+                "android" : {
+                    "mdpi" : "", /*必选，240x282，普通屏启动图片*/
+                    "ldpi" : "", /*必选，320x442，大屏启动图片*/
+                    "hdpi" : "", /*必选，480x762，高分屏启动图片*/
+                    "xhdpi" : "", /*必选，720x1242，720P高分屏启动图片*/
+                    "xxhdpi" : ""
+                }
+            },
+            "plugins" : {
+                "speech" : {
+                    "ifly" : {}
+                }
+            }
+        },
+        "schemeWhitelist" : [ "market" ]
+    },
+    "dependencies" : {
+        "pages" : {
+            "index.html" : {
+                "resources" : [
+                    "js/mui.min.js",
+                    "fonts/mui.ttf",
+                    "css/mui.min.css",
+                    "js/update.js",
+                    "list.html"
+                ],
+                "refer" : [ "index-menu.html" ],
+                "priority" : 0
+            },
+            "examples/tab-webview-subpage-contact.html" : {
+                "resources" : [ "images/60x60.gif", "js/mui.min.js", "css/mui.min.css" ],
+                "refer" : [],
+                "priority" : 0
+            },
+            "examples/tab-webview-main.html" : {
+                "resources" : [
+                    "examples/tab-webview-subpage-setting.html",
+                    "examples/tab-webview-subpage-chat.html",
+                    "examples/tab-webview-subpage-contact.html",
+                    "examples/tab-webview-subpage-about.html",
+                    "fonts/mui.ttf",
+                    "js/mui.min.js",
+                    "css/mui.min.css"
+                ],
+                "refer" : [],
+                "priority" : 0
+            },
+            "list.html" : {
+                "resources" : [ "js/mui.min.js", "fonts/mui.ttf", "css/mui.min.css" ],
+                "refer" : [
+                    "examples/template.html",
+                    "examples/tab-webview-main.html",
+                    "examples/pullrefresh_main.html",
+                    "examples/ajax.html",
+                    "examples/accordion.html",
+                    "examples/buttons.html",
+                    "examples/guide.html",
+                    "examples/badges.html",
+                    "examples/actionsheet.html",
+                    "examples/actionsheet-plus.html",
+                    "examples/ad.html",
+                    "examples/buttons-with-icons.html",
+                    "examples/buttons-with-badges.html",
+                    "examples/buttons-with-block.html",
+                    "examples/checkbox.html",
+                    "examples/clouddb_wilddog.html",
+                    "examples/dtpicker.html",
+                    "examples/date.html",
+                    "examples/dialog.html",
+                    "examples/slider-default.html",
+                    "examples/slider-with-title.html",
+                    "examples/slider-table-default.html",
+                    "examples/slider-table-pagination.html",
+                    "examples/grid-default.html",
+                    "examples/grid-pagination.html",
+                    "examples/icons.html",
+                    "examples/input.html",
+                    "examples/echarts.html",
+                    "examples/imageviewer.html",
+                    "examples/indexed-list.html",
+                    "examples/indexed-list-select.html",
+                    "examples/lazyload-image.html",
+                    "examples/locker-dom.html",
+                    "examples/login.html",
+                    "examples/setting.html",
+                    "examples/offcanvas-drag-right-plus-main.html",
+                    "examples/offcanvas-drag-left-plus-main.html",
+                    "examples/offcanvas-drag-right.html",
+                    "examples/offcanvas-drag-left.html",
+                    "examples/offcanvas-drag-down.html",
+                    "examples/picker.html",
+                    "examples/pagination.html",
+                    "examples/popovers.html",
+                    "examples/pullrefresh_with_tab.html",
+                    "examples/radio.html",
+                    "examples/range.html",
+                    "examples/switches.html",
+                    "examples/tabbar.html",
+                    "examples/tabbar-with-submenus.html",
+                    "examples/tab-with-viewpagerindicator.html",
+                    "examples/tab-with-segmented-control.html",
+                    "examples/tab-with-segmented-control-vertical.html",
+                    "examples/typography.html",
+                    "examples/im-chat.html",
+                    "examples/info.html",
+                    "examples/tableviews.html",
+                    "examples/tableviews-with-badges.html",
+                    "examples/list-with-input.html",
+                    "examples/list-triplex-row.html",
+                    "examples/tableviews-with-collapses.html",
+                    "examples/tableviews-with-swipe.html",
+                    "examples/media-list.html",
+                    "examples/nav.html",
+                    "examples/numbox.html"
+                ],
+                "priority" : 0
+            },
+            "examples/pullrefresh_main.html" : {
+                "resources" : [
+                    "examples/pullrefresh_sub.html",
+                    "fonts/mui.ttf",
+                    "js/mui.min.js",
+                    "css/mui.min.css"
+                ],
+                "refer" : [],
+                "priority" : 0
+            },
+            "examples/ajax.html" : {
+                "resources" : [ "css/app.css", "js/mui.min.js", "fonts/mui.ttf", "css/mui.min.css" ],
+                "refer" : [],
+                "priority" : 0
+            },
+            "examples/accordion.html" : {
+                "resources" : [
+                    "images/cbd.jpg",
+                    "images/muwu.jpg",
+                    "images/yuantiao.jpg",
+                    "images/shuijiao.jpg",
+                    "js/mui.min.js",
+                    "css/app.css",
+                    "fonts/mui.ttf",
+                    "css/mui.min.css"
+                ],
+                "refer" : [],
+                "priority" : 0
+            },
+            "examples/tab-webview-subpage-setting.html" : {
+                "resources" : [ "fonts/mui.ttf", "js/mui.min.js", "css/mui.min.css" ],
+                "refer" : [],
+                "priority" : 0
+            },
+            "index-menu.html" : {
+                "resources" : [ "fonts/mui.ttf", "js/mui.min.js", "css/mui.min.css" ],
+                "refer" : [ "examples/offcanvas-drag-left.html" ],
+                "priority" : 0
+            },
+            "examples/template.html" : {
+                "resources" : [ "js/mui.min.js", "fonts/mui.ttf", "css/mui.min.css" ],
+                "refer" : [],
+                "priority" : 0
+            },
+            "examples/tab-webview-subpage-about.html" : {
+                "resources" : [ "js/mui.min.js", "css/mui.min.css" ],
+                "refer" : [],
+                "priority" : 0
+            },
+            "examples/guide.html" : {
+                "resources" : [ "js/mui.min.js", "css/mui.min.css" ],
+                "refer" : [],
+                "priority" : 0
+            },
+            "examples/badges.html" : {
+                "resources" : [ "js/mui.min.js", "css/app.css", "css/mui.min.css", "fonts/mui.ttf" ],
+                "refer" : [],
+                "priority" : 0
+            },
+            "examples/actionsheet.html" : {
+                "resources" : [ "js/mui.min.js", "css/app.css", "fonts/mui.ttf", "css/mui.min.css" ],
+                "refer" : [],
+                "priority" : 0
+            },
+            "examples/actionsheet-plus.html" : {
+                "resources" : [ "js/mui.min.js", "css/app.css", "fonts/mui.ttf", "css/mui.min.css" ],
+                "refer" : [],
+                "priority" : 0
+            },
+            "examples/ad.html" : {
+                "resources" : [ "js/mui.min.js", "fonts/mui.ttf", "css/mui.min.css", "js/ad.js" ],
+                "refer" : [],
+                "priority" : 0
+            },
+            "examples/buttons.html" : {
+                "resources" : [ "js/mui.min.js", "css/app.css", "css/mui.min.css", "fonts/mui.ttf" ],
+                "refer" : [],
+                "priority" : 0
+            },
+            "examples/buttons-with-icons.html" : {
+                "resources" : [ "css/app.css", "js/mui.min.js", "fonts/mui.ttf", "css/mui.min.css" ],
+                "refer" : [],
+                "priority" : 0
+            },
+            "examples/buttons-with-badges.html" : {
+                "resources" : [ "js/mui.min.js", "css/app.css", "fonts/mui.ttf", "css/mui.min.css" ],
+                "refer" : [],
+                "priority" : 0
+            },
+            "examples/buttons-with-block.html" : {
+                "resources" : [ "js/mui.min.js", "css/app.css", "css/mui.min.css" ],
+                "refer" : [],
+                "priority" : 0
+            },
+            "examples/checkbox.html" : {
+                "resources" : [ "js/mui.min.js", "css/app.css", "fonts/mui.ttf", "css/mui.min.css" ],
+                "refer" : [],
+                "priority" : 0
+            },
+            "examples/tab-webview-subpage-chat.html" : {
+                "resources" : [ "fonts/mui.ttf", "js/mui.min.js", "css/mui.min.css" ],
+                "refer" : [],
+                "priority" : 0
+            },
+            "examples/clouddb_wilddog.html" : {
+                "resources" : [ "js/mui.min.js", "fonts/mui.ttf", "css/mui.min.css" ],
+                "refer" : [],
+                "priority" : 0
+            },
+            "examples/dtpicker.html" : {
+                "resources" : [
+                    "js/mui.picker.min.js",
+                    "js/mui.min.js",
+                    "css/app.css",
+                    "fonts/mui.ttf",
+                    "css/mui.min.css",
+                    "css/mui.picker.min.css"
+                ],
+                "refer" : [],
+                "priority" : 0
+            },
+            "examples/date.html" : {
+                "resources" : [ "js/mui.min.js", "css/app.css", "css/mui.min.css", "fonts/mui.ttf" ],
+                "refer" : [],
+                "priority" : 0
+            },
+            "examples/dialog.html" : {
+                "resources" : [ "js/mui.min.js", "css/app.css", "fonts/mui.ttf", "css/mui.min.css" ],
+                "refer" : [],
+                "priority" : 0
+            },
+            "examples/slider-default.html" : {
+                "resources" : [
+                    "images/cbd.jpg",
+                    "images/muwu.jpg",
+                    "images/yuantiao.jpg",
+                    "js/mui.min.js",
+                    "css/app.css",
+                    "css/mui.min.css",
+                    "images/shuijiao.jpg"
+                ],
+                "refer" : [],
+                "priority" : 0
+            },
+            "examples/slider-with-title.html" : {
+                "resources" : [
+                    "images/cbd.jpg",
+                    "images/yuantiao.jpg",
+                    "images/muwu.jpg",
+                    "js/mui.min.js",
+                    "css/app.css",
+                    "css/mui.min.css",
+                    "images/shuijiao.jpg"
+                ],
+                "refer" : [],
+                "priority" : 0
+            },
+            "examples/slider-table-default.html" : {
+                "resources" : [
+                    "images/cbd.jpg",
+                    "images/yuantiao.jpg",
+                    "images/muwu.jpg",
+                    "js/mui.min.js",
+                    "css/app.css",
+                    "fonts/mui.ttf",
+                    "css/mui.min.css",
+                    "images/shuijiao.jpg"
+                ],
+                "refer" : [],
+                "priority" : 0
+            },
+            "examples/slider-table-pagination.html" : {
+                "resources" : [
+                    "images/cbd.jpg",
+                    "images/muwu.jpg",
+                    "images/yuantiao.jpg",
+                    "js/mui.min.js",
+                    "css/app.css",
+                    "fonts/mui.ttf",
+                    "css/mui.min.css",
+                    "images/shuijiao.jpg"
+                ],
+                "refer" : [],
+                "priority" : 0
+            },
+            "examples/grid-default.html" : {
+                "resources" : [ "js/mui.min.js", "css/app.css", "fonts/mui.ttf", "css/mui.min.css" ],
+                "refer" : [],
+                "priority" : 0
+            },
+            "examples/grid-pagination.html" : {
+                "resources" : [ "js/mui.min.js", "css/app.css", "fonts/mui.ttf", "css/mui.min.css" ],
+                "refer" : [],
+                "priority" : 0
+            },
+            "examples/icons.html" : {
+                "resources" : [ "js/mui.min.js", "css/app.css", "fonts/mui.ttf", "css/mui.min.css" ],
+                "refer" : [],
+                "priority" : 0
+            },
+            "examples/input.html" : {
+                "resources" : [ "js/mui.min.js", "css/app.css", "fonts/mui.ttf", "css/mui.min.css" ],
+                "refer" : [],
+                "priority" : 0
+            },
+            "examples/pullrefresh_sub.html" : {
+                "resources" : [ "js/mui.min.js", "fonts/mui.ttf", "css/mui.min.css" ],
+                "refer" : [],
+                "priority" : 0
+            },
+            "examples/echarts.html" : {
+                "resources" : [
+                    "js/mui.min.js",
+                    "css/app.css",
+                    "fonts/mui.ttf",
+                    "css/mui.min.css",
+                    "libs/echarts-all.js"
+                ],
+                "refer" : [],
+                "priority" : 0
+            },
+            "examples/imageviewer.html" : {
+                "resources" : [
+                    "js/mui.zoom.js",
+                    "images/muwu.jpg",
+                    "images/yuantiao.jpg",
+                    "js/mui.min.js",
+                    "fonts/mui.ttf",
+                    "css/mui.min.css",
+                    "js/mui.previewimage.js",
+                    "images/shuijiao.jpg"
+                ],
+                "refer" : [],
+                "priority" : 0
+            },
+            "examples/indexed-list.html" : {
+                "resources" : [
+                    "js/mui.min.js",
+                    "fonts/mui.ttf",
+                    "css/mui.min.css",
+                    "css/mui.indexedlist.css",
+                    "js/mui.indexedlist.js"
+                ],
+                "refer" : [],
+                "priority" : 0
+            },
+            "examples/indexed-list-select.html" : {
+                "resources" : [
+                    "js/mui.min.js",
+                    "fonts/mui.ttf",
+                    "css/mui.min.css",
+                    "css/mui.indexedlist.css",
+                    "js/mui.indexedlist.js"
+                ],
+                "refer" : [],
+                "priority" : 0
+            },
+            "examples/lazyload-image.html" : {
+                "resources" : [
+                    "js/mui.min.js",
+                    "css/app.css",
+                    "images/60x60.gif",
+                    "fonts/mui.ttf",
+                    "css/mui.min.css",
+                    "js/mui.lazyload.js",
+                    "js/mui.lazyload.img.js"
+                ],
+                "refer" : [],
+                "priority" : 0
+            },
+            "examples/locker-dom.html" : {
+                "resources" : [
+                    "js/mui.min.js",
+                    "css/app.css",
+                    "fonts/mui.ttf",
+                    "css/mui.min.css",
+                    "js/mui.locker.js"
+                ],
+                "refer" : [],
+                "priority" : 0
+            },
+            "examples/login.html" : {
+                "resources" : [
+                    "js/mui.min.js",
+                    "css/app.css",
+                    "css/mui.min.css",
+                    "images/login-1.png"
+                ],
+                "refer" : [],
+                "priority" : 0
+            },
+            "examples/setting.html" : {
+                "resources" : [
+                    "images/logo.png",
+                    "libs/easymob-webim-sdk/easemob.im-1.0.5.js",
+                    "js/mui.min.js",
+                    "fonts/mui.ttf",
+                    "css/mui.min.css",
+                    "libs/easymob-webim-sdk/json2.js",
+                    "libs/easymob-webim-sdk/jquery-1.11.1.js",
+                    "js/feedback.js",
+                    "css/feedback-page.css",
+                    "js/feedback-page.js",
+                    "libs/easymob-webim-sdk/strophe-custom-2.0.0.js",
+                    "js/mui.view.js",
+                    "images/iconfont-tianjia.png"
+                ],
+                "refer" : [],
+                "priority" : 0
+            },
+            "examples/offcanvas-drag-right-plus-main.html" : {
+                "resources" : [ "js/mui.min.js", "fonts/mui.ttf", "css/mui.min.css" ],
+                "refer" : [ "examples/offcanvas-drag-right-plus-menu.html" ],
+                "priority" : 0
+            },
+            "examples/offcanvas-drag-right-plus-menu.html" : {
+                "resources" : [ "js/mui.min.js", "fonts/mui.ttf", "css/mui.min.css" ],
+                "refer" : [],
+                "priority" : 0
+            },
+            "examples/offcanvas-drag-left-plus-menu.html" : {
+                "resources" : [ "js/mui.min.js", "fonts/mui.ttf", "css/mui.min.css" ],
+                "refer" : [],
+                "priority" : 0
+            },
+            "examples/offcanvas-drag-left-plus-main.html" : {
+                "resources" : [ "js/mui.min.js", "fonts/mui.ttf", "css/mui.min.css" ],
+                "refer" : [ "examples/offcanvas-drag-left-plus-menu.html" ],
+                "priority" : 0
+            },
+            "examples/offcanvas-drag-right.html" : {
+                "resources" : [ "js/mui.min.js", "fonts/mui.ttf", "css/mui.min.css" ],
+                "refer" : [],
+                "priority" : 0
+            },
+            "examples/offcanvas-drag-left.html" : {
+                "resources" : [ "js/mui.min.js", "fonts/mui.ttf", "css/mui.min.css" ],
+                "refer" : [],
+                "priority" : 0
+            },
+            "examples/offcanvas-drag-down.html" : {
+                "resources" : [ "js/mui.min.js", "fonts/mui.ttf", "css/mui.min.css" ],
+                "refer" : [],
+                "priority" : 0
+            },
+            "examples/picker.html" : {
+                "resources" : [
+                    "js/mui.picker.js",
+                    "js/mui.min.js",
+                    "css/app.css",
+                    "js/mui.poppicker.js",
+                    "fonts/mui.ttf",
+                    "css/mui.min.css",
+                    "js/city.data.js",
+                    "css/mui.poppicker.css",
+                    "css/mui.picker.css",
+                    "js/city.data-3.js"
+                ],
+                "refer" : [],
+                "priority" : 0
+            },
+            "examples/pagination.html" : {
+                "resources" : [ "js/mui.min.js", "css/app.css", "css/mui.min.css" ],
+                "refer" : [],
+                "priority" : 0
+            },
+            "examples/popovers.html" : {
+                "resources" : [ "js/mui.min.js", "css/app.css", "fonts/mui.ttf", "css/mui.min.css" ],
+                "refer" : [],
+                "priority" : 0
+            },
+            "examples/pullrefresh_with_tab.html" : {
+                "resources" : [
+                    "js/mui.pullToRefresh.js",
+                    "js/mui.min.js",
+                    "js/mui.pullToRefresh.material.js",
+                    "fonts/mui.ttf",
+                    "css/mui.min.css"
+                ],
+                "refer" : [],
+                "priority" : 0
+            },
+            "examples/radio.html" : {
+                "resources" : [ "css/app.css", "js/mui.min.js", "fonts/mui.ttf", "css/mui.min.css" ],
+                "refer" : [],
+                "priority" : 0
+            },
+            "examples/range.html" : {
+                "resources" : [ "js/mui.min.js", "css/app.css", "css/mui.min.css" ],
+                "refer" : [],
+                "priority" : 0
+            },
+            "examples/switches.html" : {
+                "resources" : [ "js/mui.min.js", "css/app.css", "css/mui.min.css" ],
+                "refer" : [],
+                "priority" : 0
+            },
+            "examples/tabbar.html" : {
+                "resources" : [
+                    "js/mui.min.js",
+                    "css/app.css",
+                    "fonts/mui.ttf",
+                    "images/60x60.gif",
+                    "css/mui.min.css"
+                ],
+                "refer" : [],
+                "priority" : 0
+            },
+            "examples/tabbar-with-submenus.html" : {
+                "resources" : [ "js/mui.min.js", "css/app.css", "css/mui.min.css" ],
+                "refer" : [],
+                "priority" : 0
+            },
+            "examples/tab-with-viewpagerindicator.html" : {
+                "resources" : [ "js/mui.min.js", "css/app.css", "fonts/mui.ttf", "css/mui.min.css" ],
+                "refer" : [],
+                "priority" : 0
+            },
+            "examples/tab-with-segmented-control.html" : {
+                "resources" : [ "js/mui.min.js", "css/app.css", "fonts/mui.ttf", "css/mui.min.css" ],
+                "refer" : [],
+                "priority" : 0
+            },
+            "examples/tab-with-segmented-control-vertical.html" : {
+                "resources" : [ "js/mui.min.js", "css/app.css", "css/mui.min.css" ],
+                "refer" : [],
+                "priority" : 0
+            },
+            "examples/typography.html" : {
+                "resources" : [ "js/mui.min.js", "css/app.css", "css/mui.min.css" ],
+                "refer" : [],
+                "priority" : 0
+            },
+            "examples/im-chat.html" : {
+                "resources" : [
+                    "js/mui.imageViewer.js",
+                    "images/logo.png",
+                    "js/mui.min.js",
+                    "css/app.css",
+                    "fonts/mui.ttf",
+                    "css/mui.min.css",
+                    "css/mui.imageviewer.css",
+                    "js/arttmpl.js"
+                ],
+                "refer" : [],
+                "priority" : 0
+            },
+            "examples/info.html" : {
+                "resources" : [
+                    "js/mui.min.js",
+                    "css/app.css",
+                    "css/mui.min.css",
+                    "images/qrcode.png"
+                ],
+                "refer" : [],
+                "priority" : 0
+            },
+            "examples/beecloud.html" : {
+                "resources" : [ "js/mui.min.js", "js/beecloud.js", "css/mui.min.css" ],
+                "refer" : [],
+                "priority" : 0
+            },
+            "examples/tableviews.html" : {
+                "resources" : [ "js/mui.min.js", "css/app.css", "fonts/mui.ttf", "css/mui.min.css" ],
+                "refer" : [],
+                "priority" : 0
+            },
+            "examples/tableviews-with-badges.html" : {
+                "resources" : [ "js/mui.min.js", "css/app.css", "fonts/mui.ttf", "css/mui.min.css" ],
+                "refer" : [],
+                "priority" : 0
+            },
+            "examples/list-with-input.html" : {
+                "resources" : [ "js/mui.min.js", "css/app.css", "fonts/mui.ttf", "css/mui.min.css" ],
+                "refer" : [],
+                "priority" : 0
+            },
+            "examples/list-triplex-row.html" : {
+                "resources" : [ "js/mui.min.js", "css/app.css", "fonts/mui.ttf", "css/mui.min.css" ],
+                "refer" : [],
+                "priority" : 0
+            },
+            "examples/tableviews-with-collapses.html" : {
+                "resources" : [ "js/mui.min.js", "css/app.css", "fonts/mui.ttf", "css/mui.min.css" ],
+                "refer" : [],
+                "priority" : 0
+            },
+            "examples/tableviews-with-swipe.html" : {
+                "resources" : [ "css/app.css", "js/mui.min.js", "fonts/mui.ttf", "css/mui.min.css" ],
+                "refer" : [],
+                "priority" : 0
+            },
+            "examples/media-list.html" : {
+                "resources" : [
+                    "images/cbd.jpg",
+                    "images/yuantiao.jpg",
+                    "images/muwu.jpg",
+                    "js/mui.min.js",
+                    "css/app.css",
+                    "fonts/mui.ttf",
+                    "css/mui.min.css",
+                    "images/shuijiao.jpg"
+                ],
+                "refer" : [],
+                "priority" : 0
+            },
+            "examples/nav.html" : {
+                "resources" : [ "js/mui.min.js", "fonts/mui.ttf", "css/mui.min.css" ],
+                "refer" : [],
+                "priority" : 0
+            },
+            "examples/numbox.html" : {
+                "resources" : [ "css/app.css", "css/mui.min.css", "js/mui.js" ],
+                "refer" : [],
+                "priority" : 0
+            }
+        },
+        "idle" : {
+            "resources" : [
+                "js/mui.dtpicker.js",
+                "css/mui.listpicker.css",
+                "css/mui.dtpicker.css",
+                "css/mui.picker.all.css",
+                "examples/modals.html",
+                "examples/tabbar-labels-only.html",
+                "js/mui.listpicker.js",
+                "libs/easymob-webim-sdk/quickstart.md",
+                "js/mui.picker.all.js"
+            ]
+        }
+    }
+}
