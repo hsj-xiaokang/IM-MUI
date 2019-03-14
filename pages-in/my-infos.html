@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>个人资料</title>
+<!-- 头部调用 -->
+<script src="../js/mui.min.js "></script>
+<link rel="stylesheet" href="../css/mui.min.css">
+<link href="./my-infos.css" rel="stylesheet" />
+<script src="../libs/jquery.min.js"></script>
+<!-- 上传头像 -->
+<link href="../css/upimg-style.css" rel="stylesheet"type="text/css">
+<script src="../libs/iscroll-zoom.js"></script>
+<script src="../libs/hammer.js"></script>
+<script src="../libs/jquery.photoClip.js"></script>
+<!-- <script src="../libs/pinch-zoom.umd.js"></script> -->
+<!-- <script src="../libs/pinchzoom.umd.js"></script> -->
+<style type="text/css">
+	 .mui-bar {
+	    position: fixed;
+	    height: 58px !important;
+	} 
+</style>
+</head>
+
+<body>
+	<!--主界面部分-->
+	<div class="mui-inner-wrap">
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="top: 30%;"></a>
+			<h1 class="mui-title" style="top: 32%;text-align: left;">个人信息</h1>
+		</header>
+		<div class="mui-content" style="margin-top: 4%;">
+			<div class="mui-scroll">
+				<!--主体-->
+				<div class="baise grxx">
+					<form class="mui-input-group" id="userInfo" method="POST">
+						 <ul class="mui-table-view mui-table-view-chevron"  style="line-height: 30px;"  id='logox'>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">
+								   <div style="display: inline-block;margin-top: 8%;">头像</div>
+								    <div class="mbupload_bgimg-tx" id="logox-old" style="display: inline-block;">
+									<img src="../images/xiaolongnv.jpg" alt="">
+								   </div> 
+								</a>
+							</li>
+						</ul> 
+						
+						<ul class="mui-table-view mui-table-view-chevron"  style="line-height: 30px;"  id='nickname'>
+							<li class="mui-table-view-cell">
+								<a href="javascript:void();" class="mui-navigate-right">昵称 <i class="mui-pull-right update" style="font-size: 15px;color: gray;font-style: normal;">嘉靖</i></a>
+							</li>
+						</ul>
+						<ul class="mui-table-view mui-table-view-chevron"  style="line-height: 30px;"  id='phone'>
+							<li class="mui-table-view-cell">
+								<a href="javascript:void();" class="mui-navigate-right">手机 <i class="mui-pull-right update" style="font-size: 15px;color: gray;font-style: normal;">13518705742</i></a>
+							</li>
+						</ul>
+						
+						<!-- <ul class="mui-table-view">
+							<li class="mui-table-view-cell mui-media">
+								<div class="mbupload_bgimg-tx" id="logox-old">
+									<img src="../images/xiaolongnv.jpg" alt="">
+								</div>
+								<div class="mbupload_bgimg-upimg" id="logox"></div>
+							</li>
+						</ul> -->
+						<!-- <div class="mui-button-row">
+							<button type="button" class="mui-btn mui-btn-primary">确认修改</button>
+							&nbsp;&nbsp;&nbsp;&nbsp;
+							<button type="button"
+								class="mui-action-back mui-btn mui-btn-danger"
+								onclick="return false;">取消</button>
+						</div> -->
+					</form>
+				</div>
+				<!-- 上传头像html -->
+				<article class="htmleaf-container">
+					<div id="clipArea"></div>
+					<div class="foot-use">
+						<div class="uploader1 blue">
+							<input type="button" name="file" class="button" value="选择图片">
+							<input id="file" type="file" accept="image/*" multiple />
+						</div>
+						<button id="clipBtn">确定</button>
+					</div>
+					<div id="view"></div>
+				</article>
+			</div>
+		</div>
+	</div>
+
+	<script>
+	mui.init();
+	/* var el = document.getElementsByClassName('photo-clip-moveLayer');
+    var pz = new PinchZoom(el, options); */
+	// DataURL转Blob对象
+	function dataURLToBlob(dataurl){
+	    var arr = dataurl.split(',');
+	    var mime = arr[0].match(/:(.*?);/)[1];
+	    var bstr = atob(arr[1]);
+	    var n = bstr.length;
+	    var u8arr = new Uint8Array(n);
+	    while(n--){
+	        u8arr[n] = bstr.charCodeAt(n);
+	    }
+	    return new Blob([u8arr], {type:mime});
+	}
+	//下面图片选择图片
+		var obUrl = ''
+		$("#clipArea").photoClip({
+			width : 350,
+			height : 360,
+			file : "#file",
+			view : "#view",
+			ok : "#clipBtn",
+			loadStart : function() {
+				console.log("照片读取中");
+			},
+			loadComplete : function() {
+				console.log("照片读取完成");
+			},
+			clipFinish : function(dataURL) {
+				var formdata = new FormData();    
+				formdata.append('personimg',dataURLToBlob(dataURL));
+				$.ajax({
+	                type:'POST',
+	                url:"${GLOB_HOME}/springUpload/file2",
+	                data:formdata,
+	                async: false,    
+	                cache: false,   
+	                contentType: false, //不设置内容类型  
+	                processData: false, //不处理数据  
+	                success:function(data){
+	                	headPortrait = data.urlpath||"";
+	                }
+	            });
+			}
+		});
+		/* $("#logox").click(function() {
+			$(this).hide;
+		}); */
+		$(function() {
+			$("#logox").click(function() {
+				$(".htmleaf-container").show();
+			})
+			$("#clipBtn")
+					.click(
+							function() {
+								// $("#logox").empty();
+								$('#logox-old')
+										.append( 
+												'<img src="'
+														+ imgsource
+														+ '" style=" width: 100%;height: 100%; margin-left: 0;margin-top: 0;    position: absolute;top: 0;left: 0;">');
+								$(".htmleaf-container").hide();
+							})
+		});
+		$(function() {
+			jQuery.divselect = function(divselectid, inputselectid) {
+				var inputselect = $(inputselectid);
+				$(divselectid + " small").click(function() {
+					$("#divselect ul").toggle();
+					$(".mask").show();
+				});
+				$(divselectid + " ul li a").click(function() {
+					var txt = $(this).text();
+					$(divselectid + " small").html(txt);
+					var value = $(this).attr("selectid");
+					inputselect.val(value);
+					$(divselectid + " ul").hide();
+					$(".mask").hide();
+					$("#divselect small").css("color", "#333")
+				});
+			};
+			$.divselect("#divselect", "#inputselect");
+		});
+		$(function() {
+			jQuery.divselectx = function(divselectxid, inputselectxid) {
+				var inputselectx = $(inputselectxid);
+				$(divselectxid + " small").click(function() {
+					$("#divselectx ul").toggle();
+					$(".mask").show();
+				});
+				$(divselectxid + " ul li a").click(function() {
+					var txt = $(this).text();
+					$(divselectxid + " small").html(txt);
+					var value = $(this).attr("selectidx");
+					inputselectx.val(value);
+					$(divselectxid + " ul").hide();
+					$(".mask").hide();
+					$("#divselectx small").css("color", "#333")
+				});
+			};
+			$.divselectx("#divselectx", "#inputselectx");
+		});
+		$(function() {
+			jQuery.divselecty = function(divselectyid, inputselectyid) {
+				var inputselecty = $(inputselectyid);
+				$(divselectyid + " small").click(function() {
+					$("#divselecty ul").toggle();
+					$(".mask").show();
+				});
+				$(divselectyid + " ul li a").click(function() {
+					var txt = $(this).text();
+					$(divselectyid + " small").html(txt);
+					var value = $(this).attr("selectyid");
+					inputselecty.val(value);
+					$(divselectyid + " ul").hide();
+					$(".mask").hide();
+					$("#divselecty small").css("color", "#333")
+				});
+			};
+			$.divselecty("#divselecty", "#inputselecty");
+		});
+		$(function() {
+			$(".mask").click(function() {
+				$(".mask").hide();
+				$(".all").hide();
+			})
+			$(".right input").blur(function() {
+				if ($.trim($(this).val()) == '') {
+					$(this).addClass("place").html();
+				} else {
+					$(this).removeClass("place");
+				}
+			})
+		});
+		$("#file0").change(function() {
+			var objUrl = getObjectURL(this.files[0]);
+			obUrl = objUrl;
+			console.log("objUrl = " + objUrl);
+			if (objUrl) {
+				$("#img0").attr("src", objUrl).show();
+			} else {
+				$("#img0").hide();
+			}
+		});
+		function qd() {
+			var objUrl = getObjectURL(this.files[0]);
+			obUrl = objUrl;
+			console.log("objUrl = " + objUrl);
+			if (objUrl) {
+				$("#img0").attr("src", objUrl).show();
+			} else {
+				$("#img0").hide();
+			}
+		}
+		function getObjectURL(file) {
+			var url = null;
+			if (window.createObjectURL != undefined) { // basic
+				url = window.createObjectURL(file);
+			} else if (window.URL != undefined) { // mozilla(firefox)
+				url = window.URL.createObjectURL(file);
+			} else if (window.webkitURL != undefined) { // webkit or chrome
+				url = window.webkitURL.createObjectURL(file);
+			}
+			return url;
+		}
+	
+	</script>
+</body>
+</html>

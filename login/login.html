@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html >
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link href="./css/style.css" rel="stylesheet" />
+		<style>
+			.area {
+				margin: 20px auto 0px auto;
+			}
+			
+			.mui-input-group {
+				margin-top: 10px;
+			}
+			
+			.mui-input-group:first-child {
+				margin-top: 20px;
+			}
+			
+			.mui-input-group label {
+				width: 22%;
+			}
+			
+			.mui-input-row label~input,
+			.mui-input-row label~select,
+			.mui-input-row label~textarea {
+				width: 78%;
+			}
+			
+			.mui-checkbox input[type=checkbox],
+			.mui-radio input[type=radio] {
+				top: 6px;
+			}
+			
+			.mui-content-padded {
+				margin-top: 25px;
+			}
+			
+			.mui-btn {
+				padding: 10px;
+			}
+			
+			.link-area {
+				display: block;
+				margin-top: 25px;
+				text-align: center;
+			}
+			
+			.spliter {
+				color: #bbb;
+				padding: 0px 8px;
+			}
+			
+			.oauth-area {
+				position: absolute;
+				bottom: 20px;
+				left: 0px;
+				text-align: center;
+				width: 100%;
+				padding: 0px;
+				margin: 0px;
+			}
+			
+			.oauth-area .oauth-btn {
+				display: inline-block;
+				width: 50px;
+				height: 50px;
+				background-size: 30px 30px;
+				background-position: center center;
+				background-repeat: no-repeat;
+				margin: 0px 20px;
+				/*-webkit-filter: grayscale(100%); */
+				border: solid 1px #ddd;
+				border-radius: 25px;
+			}
+			
+			.oauth-area .oauth-btn:active {
+				border: solid 1px #aaa;
+			}
+			
+			.oauth-area .oauth-btn.disabled {
+				background-color: #ddd;
+			}
+			
+			 .mui-bar {
+			    position: fixed;
+			    height: 58px !important;
+			} 
+			.doc{
+				color: lightgray;
+			}
+			.center-horiza{
+				margin-top: 40% !important
+			}
+			.imeduimg{
+				width: 50px;
+				height: 50px;
+				float: left;
+			}
+			.imeduimgtext{
+				width: 40px;
+				height: 40px;
+				float: left;
+				padding-top: 4%;
+				color: #87CEFF;
+				font-size: 30px;
+
+			}
+			.mui-input-group {
+			/* position: relative; */
+			padding: 0;
+			border: 0;
+			background-color: #fff;
+			}
+			.mui-input-group:before {
+			position: absolute;
+			top: 0;
+			right: 0;
+			left: 0;
+			height: 1px;
+			content: '';
+			-webkit-transform: scaleY(.5);
+			transform: scaleY(.5);
+			background-color: #fff; 
+			}
+			.mui-input-group:after {
+				position: absolute;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				height: 0px; 
+				content: '';
+				-webkit-transform: scaleY(.5);
+				transform: scaleY(.5);
+				background-color: #c8c7cc;
+				}
+				.mui-input-group .mui-input-row:after {
+					position: absolute;
+					right: 3%;
+					bottom: 0;
+					left: 3%;
+					height: 1px;
+					content: '';
+					-webkit-transform: scaleY(.5);
+					transform: scaleY(.5);
+					background-color: #c8c7cc;
+				}
+		</style>
+
+	</head>
+
+	<body style="background-color: #fff;">
+		<!-- <header class="mui-bar mui-bar-nav"> -->
+			<!-- <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="top: 22%;"></a> -->
+			<!-- <h1 class="mui-title" style="top: 22%;">登录</h1>
+		</header> -->
+		<div class="mui-content">
+			<form id='login-form' class="mui-input-group center-horiza">
+				<div style="position: relative;left: 3%;">
+					<img src="../images/logo.png" class="imeduimg"/>
+					<div class="imeduimgtext">imedu</div>
+				</div>
+				<div class="mui-input-row">
+					<label>账号</label>
+					<input id='account' type="text" class="mui-input-clear mui-input" value="admin" placeholder="请输入账号">
+				</div>
+				<div class="mui-input-row">
+					<label>密码</label>
+					<input id='password' type="password" class="mui-input-clear mui-input" value="123456" placeholder="请输入密码">
+				</div>
+			</form>
+			
+			<div class="mui-content-padded">
+				<button id='login' type="button" class="mui-btn mui-btn-block mui-btn-primary">登录</button>
+				<div class="link-area"><a id='reg'>注册账号</a> <span class="spliter">|</span> <a id='forgetPassword'>忘记密码</a>
+				</div>
+			</div>
+			<!-- <div class="mui-content-padded oauth-area">
+                  <span class="doc">登录即代表同意应用条款</span>
+			</div> -->
+		</div>
+		<script src="../js/mui.min.js"></script>
+		<script>
+						//mui初始化
+			mui.init({
+				keyEventBind: {
+					backbutton: true //开启back按键监听
+				}
+			});
+			var clickNum = 0;
+			mui.back = function(event) {
+				clickNum++;
+				if (clickNum > 1) {
+					plus.runtime.quit();
+				} else {
+					mui.toast("再按一次退出应用");
+				}
+				setTimeout(function() {
+					clickNum = 0
+				}, 2000);
+				return false;
+			}
+			mui.plusReady(function () {
+			    var all = plus.webview.all(); 
+			    var current = plus.webview.currentWebview().id; 
+			    //console.log("current-id="+current)
+			    for(var i=0,len=all.length;i<len;i++){ 
+			    	
+			    	if(all[i].id!==current){ 
+			    	  //console.log("all[i].id="+(all[i].id))
+			    	  all[i].close(); 
+			    	} 
+			    }
+			})
+			document.getElementById('login').addEventListener('tap', function() {
+				
+							//打开关于页面
+							mui.openWindow({
+								url: '../index.html',
+								id: 'index'
+							});
+							
+						});
+			document.getElementById('reg').addEventListener('tap', function() {
+						//打开关于页面
+						mui.openWindow({
+								url: './reg.html',
+								id: 'reg'
+						});
+					});
+			document.getElementById('forgetPassword').addEventListener('tap', function() {
+					//打开关于页面
+					mui.openWindow({
+							url: './forget_password.html',
+							id: 'forgetPassword'
+						});
+					});
+		</script>
+	</body>
+
+</html>

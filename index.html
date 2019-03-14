@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>imedu</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="css/mui.min.css">
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="fonts/iconfont.css" />
+		<link rel="stylesheet" href="fonts/new/iconfont.css" />
+		<style>
+			html,
+			body {
+				background-color: #efeff4;
+			}
+			.wiht_color{
+				background-color: #FFFFFF !important;
+			}
+			.mui-bar-tab .mui-tab-item.mui-active {
+				color: #00FF7F;
+			}
+			.ps_add_show{
+				display: block;
+			}
+			.ps_add_hide{
+				display: none;
+			}
+			
+			 .mui-bar {
+				position: fixed;
+				z-index: 10;
+				right: 0;
+				left: 0;
+				height: 70px !important;
+				padding-right: 10px;
+				padding-left: 10px;
+				border-bottom: 0;
+				background-color: lightgrey;
+				-webkit-box-shadow: 0 0 1px rgba(0,0,0,.85);
+				box-shadow: 0 0 1px rgba(0,0,0,.85);
+				-webkit-backface-visibility: hidden;
+				backface-visibility: hidden;
+			} 		
+		.mui-bar-tab .mui-tab-item .mui-icon~.mui-tab-label {
+			font-size: 16px !important;
+			display: block;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+		.mui-bar .mui-title {
+			right: 40px;
+			left: 40px;
+			display: inline-block;
+			overflow: hidden;
+			width: auto;
+			margin: 0;
+			text-overflow: ellipsis;
+			font-size: 16px;			
+		}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav" id="headmain">
+			<a class="mui-icon mui-icon  mui-pull-right " style="color: #999;margin-top: 2% !important;"><i id="popoverTianjia"
+				 class="iconfont icon-jiahao1" style="font-size: 25px;"></i></a>
+			<h1 id="title" class="mui-title" style="margin-top: 8% !important;">消息</h1>
+			<!-- <div style="min-width: 50px;min-height: 50px;font-size: 80px;position: absolute;right: -18px;" id='person-tianjia'><i class="mui-icon mui-icon mui-icon-personadd"></i></div> -->
+		</header>
+
+		<nav class="mui-bar mui-bar-tab">
+			<a class="mui-tab-item mui-active" href="pages/tab-bar-message.html">
+				<span class="mui-icon mui-icon mui-icon-chatbubble"><span class="mui-badge" style="top:25px !important;">9</span></span>
+				<span class="mui-tab-label">消息</span>
+			</a>
+			<a class="mui-tab-item" href="pages/tab-bar-personlist.html">
+				<span class="mui-icon mui-icon-contact"></span>
+				<span class="mui-tab-label">通讯录</span>
+			</a>
+			<a class="mui-tab-item" href="pages/tab-bar-mycenter.html">
+				<span class="mui-icon mui-icon mui-icon-person"></span>
+				<span class="mui-tab-label">我</span>
+			</a>
+			<!-- <a class="mui-tab-item" href="index.html">
+				<span class="mui-icon mui-icon-gear"></span>
+				<span class="mui-tab-label">examples</span>
+			</a> -->
+		</nav>
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript" charset="utf-8">
+			//mui初始化
+			mui.init({
+				keyEventBind: {
+					backbutton: true //开启back按键监听
+				}
+			});
+			var clickNum = 0;
+			mui.back = function(event) {
+				clickNum++;
+				if (clickNum > 1) {
+					plus.runtime.quit();
+				} else {
+					mui.toast("再按一次退出应用");
+				}
+				setTimeout(function() {
+					clickNum = 0
+				}, 2000);
+				return false;
+			}
+
+			var subpages = ['pages/tab-bar-message.html',
+				'pages/tab-bar-personlist.html',
+				'pages/tab-bar-mycenter.html'
+			];
+			var subpage_style = {
+				top: '68px',
+				bottom: '55px'
+			};
+			var aniShow = {};
+
+			//创建子页面，首个选项卡页面显示，其它均隐藏；
+			mui.plusReady(function() {
+
+				/* var all = plus.webview.all(); 
+				var current = plus.webview.currentWebview().id; 
+				//console.log("current-id="+current)
+				for(var i=0,len=all.length;i<len;i++){ 
+					
+					if(all[i].id!==current){ 
+					  console.log("all[i].id="+(all[i].id))
+					  //all[i].close(); 
+					} 
+				} */
+
+				var self = plus.webview.currentWebview();
+				var temp = {};
+				var sub = plus.webview.create(subpages[0], subpages[0], subpage_style);
+				temp[subpages[0]] = "true";
+				mui.extend(aniShow, temp);
+				self.append(sub);
+
+				//====添加popover事件=====
+				document.querySelector('#popoverTianjia').addEventListener('tap', function(event) {
+					mui.fire(plus.webview.getWebviewById('pages/tab-bar-message.html'), 'popoverTianjia')
+				}, false);
+
+			});
+
+			//当前激活选项
+			var activeTab = subpages[0];
+			var title = document.getElementById("title");
+			//选项卡点击事件
+			mui('.mui-bar-tab').on('tap', 'a', function(e) {
+				var targetTab = this.getAttribute('href');
+				if (targetTab == activeTab) {
+					return;
+				}
+				var self = plus.webview.currentWebview();
+				mui.fire(plus.webview.getWebviewById('pages/tab-bar-message.html'), 'popoverTianjia-hide');
+
+				var current_title = this.querySelector('.mui-tab-label').innerHTML;
+				title.innerHTML = current_title;
+
+				var _subWv = plus.webview.getWebviewById(targetTab);
+
+				//如果不存在则创建
+				if (!_subWv) {
+					_subWv = plus.webview.create(targetTab, targetTab, subpage_style);
+					self.append(_subWv);
+					if (targetTab == 'pages/tab-bar-personlist.html') {
+						//====添加popover事件=====
+						document.querySelector('#popoverTianjia').addEventListener('tap', function(event) {
+							mui.fire(_subWv, 'popoverTianjia')
+						}, false);
+					}
+				} else {
+					if (targetTab == 'pages/tab-bar-personlist.html') {
+						mui.fire(_subWv, 'popoverTianjia-hide');
+					}
+				}
+
+				_subWv.show();
+				// 隐藏之前的webview
+				plus.webview.getWebviewById(activeTab).hide('none');
+				activeTab = targetTab;
+
+				if (targetTab == 'pages/tab-bar-mycenter.html') {
+					title.innerHTML = ''
+					document.querySelector('#headmain').classList.add('wiht_color');
+				} else {
+					document.querySelector('#headmain').classList.remove('wiht_color');
+				}
+
+				//====切换添加好友=====
+				if ('我' == current_title) {
+					document.querySelector('#popoverTianjia').classList.remove('ps_add_show');
+					document.querySelector('#popoverTianjia').classList.add('ps_add_hide');
+				} else {
+					document.querySelector('#popoverTianjia').classList.remove('ps_add_hide');
+					document.querySelector('#popoverTianjia').classList.add('ps_add_show');
+				}
+			});
+		</script>
+	</body>
+
+</html>
