@@ -1,5 +1,5 @@
 # imedu
-演示观看：https://v.youku.com/v_show/id_XNDA4NDc4NTM0OA==.html?spm=a2h3j.8428770.3416059.1
+演示观看：https://www.toutiao.com/i6716143999305908744/
 #### 介绍
 聊天APP-mui版本
 
